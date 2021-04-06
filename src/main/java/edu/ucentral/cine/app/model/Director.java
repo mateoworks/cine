@@ -1,12 +1,14 @@
 package edu.ucentral.cine.app.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -41,6 +43,9 @@ public class Director {
 	@NotEmpty
 	@Column(name = "foto_url", length = 200)
 	private String fotoUrl;
+	
+	@ManyToMany(mappedBy = "directores")
+    private List<Pelicula> peliculas;
 
 	public Long getId() {
 		return id;
@@ -89,5 +94,14 @@ public class Director {
 	public void setFotoUrl(String fotoUrl) {
 		this.fotoUrl = fotoUrl;
 	}
+
+	public List<Pelicula> getPeliculas() {
+		return peliculas;
+	}
+
+	public void setPeliculas(List<Pelicula> peliculas) {
+		this.peliculas = peliculas;
+	}
+	
 	
 }
