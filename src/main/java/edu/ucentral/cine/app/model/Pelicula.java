@@ -59,10 +59,123 @@ public class Pelicula {
 	private List<Director> directores;
 	
 	@JoinTable(
-			name = "rel_pelicula_director",
+			name = "rel_pelicula_genero",
 			joinColumns = @JoinColumn(name = "pelicula_id", nullable = true),
-			inverseJoinColumns = @JoinColumn(name="director_id", nullable = true)
+			inverseJoinColumns = @JoinColumn(name="genero_id", nullable = true)
 			)
 	@ManyToMany(cascade = CascadeType.ALL)
-	private List<Director> directores;
+	private List<Director> generos;
+	
+	@JoinTable(
+			name = "rel_pelicula_productora",
+			joinColumns = @JoinColumn(name = "pelicula_id", nullable = true),
+			inverseJoinColumns = @JoinColumn(name="productora_id", nullable = true)
+			)
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Director> productoras;
+	
+	@JoinTable(
+			name = "rel_pelicula_actor",
+			joinColumns = @JoinColumn(name = "pelicula_id", nullable = true),
+			inverseJoinColumns = @JoinColumn(name="actor_id", nullable = true)
+			)
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Director> actores;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getUrlPoster() {
+		return urlPoster;
+	}
+
+	public void setUrlPoster(String urlPoster) {
+		this.urlPoster = urlPoster;
+	}
+
+	public String getSinopsis() {
+		return sinopsis;
+	}
+
+	public void setSinopsis(String sinopsis) {
+		this.sinopsis = sinopsis;
+	}
+
+	public Integer getAnio() {
+		return anio;
+	}
+
+	public void setAnio(Integer anio) {
+		this.anio = anio;
+	}
+
+	public Integer getDuracionMin() {
+		return duracionMin;
+	}
+
+	public void setDuracionMin(Integer duracionMin) {
+		this.duracionMin = duracionMin;
+	}
+
+	public Clasificacion getClasificacion() {
+		return clasificacion;
+	}
+
+	public void setClasificacion(Clasificacion clasificacion) {
+		this.clasificacion = clasificacion;
+	}
+
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+
+	public List<Director> getDirectores() {
+		return directores;
+	}
+
+	public void setDirectores(List<Director> directores) {
+		this.directores = directores;
+	}
+
+	public List<Director> getGeneros() {
+		return generos;
+	}
+
+	public void setGeneros(List<Director> generos) {
+		this.generos = generos;
+	}
+
+	public List<Director> getProductoras() {
+		return productoras;
+	}
+
+	public void setProductoras(List<Director> productoras) {
+		this.productoras = productoras;
+	}
+
+	public List<Director> getActores() {
+		return actores;
+	}
+
+	public void setActores(List<Director> actores) {
+		this.actores = actores;
+	}
+	
 }
