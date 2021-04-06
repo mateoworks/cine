@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 	@GetMapping("/")
 	public String inicio(Model model) {
-		String mensaje = "Pagina de inicio";
+		String mensaje = "Pagina de inicio cambios desde git!!!!!!!!!!!!!!!";
 		model.addAttribute("mensaje", mensaje);
 		return "home";	
 	}
