@@ -16,34 +16,31 @@ import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
-@Table(name = "actores")
+
 public class Actor {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(columnDefinition = "int", length = 11)
+
 	private Long id;
 	
-	@NotEmpty
-	@Column(length = 50)
+
 	private String nombre;
-	
-	@Column(length = 80)
+
 	private String apellidos;
 	
-	@Column(name = "fecha_nacimiento")
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaNacimiento;
 	
-	@Column(columnDefinition = "TEXT")
 	private String biografia;
-	
-	@Column(name = "url_foto", length = 200)
+
 	private String urlFoto;
 	
-	@ManyToMany(mappedBy = "generos")
     private List<Pelicula> peliculas;
+
+	public List<Pelicula> getPeliculas() {
+		return peliculas;
+	}
+
+	public void setPeliculas(List<Pelicula> peliculas) {
+		this.peliculas = peliculas;
+	}
 
 	public Long getId() {
 		return id;

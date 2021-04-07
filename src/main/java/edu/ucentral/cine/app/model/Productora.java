@@ -11,25 +11,19 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "productoras")
 public class Productora {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(columnDefinition = "int", length = 11)
+
 	private Long id;
 	
-	@NotEmpty
-	@Column(name = "nombre_productora", length = 100)
+
 	private String nombreProductora;
 	
-	@Column(columnDefinition = "TEXT")
+
 	private String descripcion;
 	
-	@Column(name = "url_logo", length = 200)
+
 	private String urlLogo;
 	
-	@ManyToMany(mappedBy = "productoras")
     private List<Pelicula> peliculas;
 
 	public Long getId() {

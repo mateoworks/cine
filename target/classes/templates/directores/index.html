@@ -28,13 +28,19 @@
 							<th>Nombre</th>
 							<th>Apellidos</th>
 							<th>Fecha de nacimiento</th>
-							<th>Fecha publicacion</th>
 							<th>Editar</th>
 							<th>Eliminar</th>
 						</tr>
-						<tr th:each="vacante:${directores}">
+						<tr th:each="director:${directores}">
+						<td th:text="${director.fotoUrl}"></td>
+						<td th:text="${director.nombre}"></td>
+						<td th:text="${director.apellidos}"></td>
+						<td th:text="${director.fechaNacimiento}"></td>
+						<td><a href="" class="btn btn-success">Editar</a></td>
+						<td><a href="" class="btn btn-danger">Borrar</a></td>
+						
 							<!-- <td><img th:src="@{/images/{img} (img=${directores.imagen})}" width="60" height="60"></td>
-							<td th:text="${v.codigo}"></td>
+							<td th:text="${vacante.codigo}"></td>
 							<td th:text="${vacante.nombre}"></td>
 							<td th:text="${vacante.salario}"></td>
 							<td th:text="${vacante.fecha}"></td>
