@@ -29,8 +29,8 @@ public class DirectorController {
 	@GetMapping("/ver/{id}")
 	public String buscarDirector(@PathVariable Long id, Model model) {
 		Director director = service.buscarDirectorPorId(id);
-		model.addAttribute("vacante", director);
-		return "vacantes/formModificar";
+		model.addAttribute("director", director);
+		return "directores/formModificar";
 	}
 	@GetMapping("/crear")
 	public String crearDirector() {
@@ -44,12 +44,12 @@ public class DirectorController {
 	
 	@PostMapping("/modificar")
 	public String modificarDirector(Director director) {
-		service.modificarVacante(director);
-		return "redirect:/vacantes/index";
+		service.modificarDirector(director);
+		return "redirect:/directores/index";
 	}
 	@GetMapping("/delete/{id}")
 	public String eliminarDirector(@PathVariable Long id) {
-		service.eliminarVacantePorId(id);
+		service.eliminarDirectorPorId(id);
 		return "redirect:/directores/index";
 	}
 }

@@ -3,6 +3,12 @@ package edu.ucentral.cine.app.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 public class Director {
 	
 	private Long id;
@@ -10,7 +16,9 @@ public class Director {
 	private String nombre;
 
 	private String apellidos;
-
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(iso = ISO.DATE)
 	private Date fechaNacimiento;
 
 	private String biografia;

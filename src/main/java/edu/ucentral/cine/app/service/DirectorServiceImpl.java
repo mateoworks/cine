@@ -98,7 +98,7 @@ public class DirectorServiceImpl implements DirectorService{
 	}
 
 	@Override
-	public void modificarVacante(Director director) {
+	public void modificarDirector(Director director) {
 		for(int i=0;i<lista.size();i++) {
 			Director dir = lista.get(i);
 			if(dir.getId() == director.getId()) {
@@ -118,7 +118,7 @@ public class DirectorServiceImpl implements DirectorService{
 	}
 
 	@Override
-	public void eliminarVacantePorId(Long id) {
+	public void eliminarDirectorPorId(Long id) {
 		for(int i=0;i<lista.size();i++) {
 			Director dir = lista.get(i);
 			if(dir.getId() == id) {

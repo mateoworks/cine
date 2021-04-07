@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Formulario Director</title>
+<title>Editar Director</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -18,32 +18,37 @@
 					<Strong>Datos del director</Strong>
 				</h4>
 				<div class="card-body">
-					<form th:action="@{/directores/guardar}" method="post">
+					<form th:action="@{/directores/modificar}" method="post">
 						<div class="row">
 							<div class="col-md-4">
 								<div class="form-group">
-									<label for="codigo">Nombre</label> 
-									<input type="text" id="codigo" name="nombre" class="form-control">
+									<input type="hidden" name="id" id="id" th:field="${director.id}">
+									<label for="codigo">Nombre</label> <input type="text"
+										id="nombre" name="nombre" th:field="${director.nombre}"
+										class="form-control">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label for="nombre">Apellidos</label> 
-									<input type="text" id="nombre" name="apellidos" class="form-control">
+									<label for="nombre">Apellidos</label> <input type="text"
+										id="apellidos" name="apellidos" th:field="${director.apellidos}"
+										class="form-control">
 								</div>
 							</div>
 							<div class="col-md-4">
 								<div class="form-group">
-									<label for="salario">Fecha de nacimiento</label> 
-									<input type="date"id="salario" name="fechaNacimiento" class="form-control">
+									<label for="salario">Fecha de nacimiento</label> <input type="date"
+										id="fechaNacimiento" name="fechaNacimiento" th:field="${director.fechaNacimiento}"
+										class="form-control">
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-8">
 								<div class="form-group">
-									<label for="descripcion">Biografía</label> <input type="text"
-										id="descripcion" name="biografia" class="form-control">
+									<label for="descripcion">Biografia</label> <input type="text"
+										id="biografia" name="biografia"
+										th:field="${director.biografia}" class="form-control">
 								</div>
 							</div>
 						</div>
