@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Listado Directores</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<header th:insert="fragments/header :: barra-menu"> </header>
+	<main role="main">
+		<div class="container">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-header">
+						<strong>Listado de Directores</strong>
+					</h4>
+
+					<br /> <a class="btn btn-primary" th:href="@{/directores/crear}"
+						role="button">Registrar director</a>
+					<table class="table">
+						<tr>
+							<th>Foto</th>
+							<th>Nombre</th>
+							<th>Apellidos</th>
+							<th>Fecha de nacimiento</th>
+							<th>Fecha publicacion</th>
+							<th>Editar</th>
+							<th>Eliminar</th>
+						</tr>
+						<tr th:each="vacante:${directores}">
+							<!-- <td><img th:src="@{/images/{img} (img=${directores.imagen})}" width="60" height="60"></td>
+							<td th:text="${v.codigo}"></td>
+							<td th:text="${vacante.nombre}"></td>
+							<td th:text="${vacante.salario}"></td>
+							<td th:text="${vacante.fecha}"></td>
+
+							<td><span th:if="${vacante.estado == true}"
+								class="badge bg-success">Activa</span> <span
+								th:unless="${vacante.estado == true}" class="badge bg-danger">Inactiva</span>
+							</td>
+							<td><a th:href="@{/vacantes/ver/{id} (id=${vacante.id})}"
+								class="btn btn-success">Editar</a></td>
+							<td><a th:href="@{/vacantes/delete/{id} (id=${vacante.id})}"
+								onclick="return confirm('¿Estas seguro?')"
+								class="btn btn-danger">borrar</a></td>
+ -->
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
+</body>
+</html>
